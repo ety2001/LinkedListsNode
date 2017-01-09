@@ -1,14 +1,22 @@
 // Node.cpp
+// Implements methods for Node class
 
 #include "Node.h"
 #include <iostream>
 
-Node::Node(Student* student){
-	this->student = student;
-	this->next = NULL;
+Node::Node(){
+	student = NULL;
+	next = NULL;
+};
+
+Node::Node(Student* stud){
+	student = stud;
+	next = NULL;
 };
 
 Node::~Node(){
+	delete student;
+	delete next;
 };
 
 Node* Node::getNext(){
@@ -20,5 +28,9 @@ Student* Node::getStudent(){
 };
 
 void Node::setNext(Node* node){
-	this->next = node;
+	next = node;
+};
+
+void Node::setStudent(Student* stud){
+	student = stud;
 };
